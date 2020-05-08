@@ -4,8 +4,9 @@ const bodyparser = require("body-parser")
 
 const app = express()
 
-let postData 
+const postData = []
 app.use(bodyparser.urlencoded({extended: true}))
+app.use(bodyparser.json())
 
 app.get("/",(req,res)=>{
     res.send('{status: success}')
@@ -14,11 +15,14 @@ app.get("/",(req,res)=>{
 
 app.post("/data",(req,res)=>{
 
-    postData = {
+    const data = {
         "data": req.body.data
     }
 
-    res.send(postData)
+    postData.push(data)
+
+    res.send(postData.map(data=> data))
+    postData.map(data=> console.log(data))
     
 })
 
