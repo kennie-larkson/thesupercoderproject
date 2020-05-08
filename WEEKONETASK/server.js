@@ -16,7 +16,7 @@ app.get("/",(req,res)=>{
 app.post("/data",(req,res)=>{
 
     const data = {
-        "data": req.body.data
+        data: req.body.data
     }
 
     postData.push(data)
@@ -33,7 +33,7 @@ app.get("/data",(req,res)=>{
 })
 
 app.listen(port,()=>{
-    console.log(`Server is running on port : ${port}`)
+    console.log(`Week One Server is running on port : ${port}`)
 
     
 })
